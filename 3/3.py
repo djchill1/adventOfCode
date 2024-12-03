@@ -9,13 +9,13 @@ print(data)
 
 def part1():
 	output = []
-	# for line in data:
-	# 	x = re.findall('mul\([0-9]+\,[0-9]+\)', line)
-	# 	print(x)
-	# 	for entry in x:
-	# 		vals = init.ints(entry)
-	# 		print(vals)
-	# 		output.append(vals[0]*vals[1])
+	for line in data:
+		x = re.findall('mul\([0-9]+\,[0-9]+\)', line)
+		print(x)
+		for entry in x:
+			vals = init.ints(entry)
+			print(vals)
+			output.append(vals[0]*vals[1])
 	return sum(output)
 
 

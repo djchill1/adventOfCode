@@ -1,17 +1,25 @@
 import logging
 import os
 
-def create_day_files(day):
+
+def create_day_files(year, day):
+    year = str(year)
     day = str(day)
+    print(year, day)
+    try:
+        os.mkdir(year)
+    except:
+        pass
+    os.chdir(os.getcwd() + '/' + year)
     try:
         os.mkdir(day)
     except FileExistsError:
         logging.error("Directory ", day, " already exists")
-    os.chdir(os.getcwd()+'/'+day)
+    os.chdir(os.getcwd() + '/' + day)
     # strip leading zeros
     day = str(int(day))
     try:
-        open(day+'_input.txt', "x")
+        open(day + '_input.txt', "x")
     except:
         logging.error("Can't create input file for day " + day + " due to a conflict")
     try:
@@ -29,4 +37,5 @@ def create_day_files(day):
     except:
         logging.error("Can't create python file for day " + day + " due to a conflict")
 
-create_day_files('3')
+
+create_day_files('2019', '02')
